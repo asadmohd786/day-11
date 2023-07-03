@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Form</title>
+  <style>
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone"><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea><br>
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+    // Get all input fields
+    const inputs = document.querySelectorAll('input, textarea');
+
+    // Add event listeners to each input field
+    inputs.forEach(input => {
+      input.addEventListener('change', handleInputChange);
+    });
+
+    function handleInputChange(event) {
+      // Get the input field that was changed
+      const changedInput = event.target;
+
+      // Display a message indicating which input field was changed
+      const message = document.getElementById('message');
+      message.textContent = `Field "${changedInput.name}" was changed.`;
+    }
+  </script>
+</body>
+</html>
 
